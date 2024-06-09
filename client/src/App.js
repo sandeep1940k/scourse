@@ -1,7 +1,15 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Signup from "./authentication/Signup";
+import LandingPage from "./LandingPage";
 
 function App() {
   return (
-    <>this is my site</>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
+    </Router>
   );
 }
 
