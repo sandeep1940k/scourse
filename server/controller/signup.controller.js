@@ -28,7 +28,7 @@ const login = async (req, res) => {
         
         const user = await signupDao.exists({ username, password });
         if (user) {
-            res.status(RESPONSE.OK).send({ message: MESSAGE.LOGIN_SUCCESSFULLY });
+            res.status(RESPONSE.OK).send({ userId: user._id, message: MESSAGE.LOGIN_SUCCESSFULLY });
         } else {
             res.status(RESPONSE.NO_CONTENT).send({ message: MESSAGE.INCORRECT_USERNAME_PASSWORD });
         }

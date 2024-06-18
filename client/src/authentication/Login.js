@@ -3,6 +3,7 @@ import './Signup.css';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom"
 import { RESPONSE } from '../constant/response.constant';
+
 const Login = () => {
     const navigate = useNavigate()
     const [formData, setFormData] = useState({
@@ -23,6 +24,7 @@ const Login = () => {
             event.preventDefault();
             const response = await axios.get('http://localhost:3005/api/authentication/login', { params: formData });
             if (response.status ===  RESPONSE.OK){
+                localStorage.setItem('userId', response.data.userId);
                 navigate('/dashboard')
             }
         } catch (error) {

@@ -1,0 +1,149 @@
+nav {
+    background-color: #000;
+    display: flex;
+    font-size: 14px;
+    margin: 10px;
+    padding: 10px;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.heading {
+    padding-right: 10px;
+    width: 50%;
+}
+
+.heading-option {
+    width: 50%;
+    text-align: end;
+    position: relative;
+}
+
+.heading-option button {
+    background: rgb(99, 99, 192);
+    position: absolute;
+    top: 50%;
+    transform: translate(-100%, -50%);
+}
+
+.modal {
+    font-size: 12px;
+}
+
+.modal>.header {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    font-size: 18px;
+    text-align: center;
+    padding: 5px;
+}
+
+.modal>.content {
+    width: 100%;
+    padding: 10px 5px;
+}
+
+.modal>.actions {
+    width: 100%;
+    padding: 10px 5px;
+    margin: auto;
+    text-align: center;
+}
+
+.modal>.close {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    padding: 2px 5px;
+    line-height: 20px;
+    right: -10px;
+    top: -10px;
+    font-size: 24px;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #cfcece;
+}
+
+.popup-content {
+    width: 60% !important;
+}
+
+textarea {
+    font-size: 14px;
+    width: 93%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    height: 200px;
+}
+select{
+    font-size: 14px;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    padding: 10px;
+}
+.d-flex{
+    display: flex;
+}
+.w-50{
+    width: 50%;
+}
+
+/* Dashboard.css */
+
+.table-container {
+    margin: 20px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+thead {
+    background-color: #f4f4f4;
+}
+
+thead th {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.action-button {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.action-button.edit {
+    background-color: #4caf50;
+    color: white;
+}
+
+.action-button.delete {
+    background-color: #f44336;
+    color: white;
+}

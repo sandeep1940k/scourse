@@ -3,6 +3,7 @@ import './Signup.css';
 // import http from '../helper/http';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom"
+import { RESPONSE } from '../constant/response.constant';
 
 
 const Signup = () => {
@@ -25,7 +26,9 @@ const Signup = () => {
         try {
             event.preventDefault();
             const response = await axios.post('http://localhost:3005/api/authentication/signup', formData);
-            console.log('API Response:', response.data);
+            if (response.status === RESPONSE.OK) {
+                navigate('/login');
+            }
         } catch (error) {
             console.error('Error:', error);
         }
