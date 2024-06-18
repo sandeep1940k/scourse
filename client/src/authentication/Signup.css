@@ -1,47 +1,95 @@
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: auto;
-    width: 50%;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: sans-serif;
 }
 
-.heading {
-    margin-bottom: 20px;
+.background {
+    width: max-content;
+    height: max-content;
 }
 
-.form {
-    width: 100%;
-}
+.card {
+    position: absolute;
+    width: 30%;
+    height: 80%;
+    top: 10%;
+    left: 35%;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 10px 10px 50px 0px;
+    overflow: hidden;
 
-.formGroup {
-    margin-bottom: 15px;
-}
+    .card-container {
+        position: relative;
+        width: 90%;
+        height: 100%;
+        margin: 10px;
+    }
 
-.label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 16px;
-}
+    img {
+        position: absolute;
+        width: max-content;
+        height: max-content;
+    }
 
-.input {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+    h1 {
+        text-align: center;
+        font-size: 20px;
+        text-transform: capitalize;
+        position: absolute;
+        width: 100%;
+        background: white;
+        padding: 10px;
+        border-radius: 10px;
+        left: 2.5%;
+    }
 
-.button {
-    padding: 10px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    form {
+        padding: 10px;
+        position: relative;
+        background: white;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        left: 2.5%;
+        top: 18%;
+
+        label {
+            text-transform: capitalize;
+            font-size: 14px;
+        }
+
+        input {
+            font-size: 16px;
+            width: 90%;
+            height: 18px;
+            border-radius: 10px;
+            border-width: thin;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        button {
+            font-size: 18px;
+            text-transform: capitalize;
+            padding: 10px;
+            border-radius: 10px;
+            border-width: thin;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            height: 10%;
+            background-color: #6ac2da;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        p{
+            span{
+                color: #6ac2da;
+                cursor: pointer;
+            }
+        }
+    }
 }
