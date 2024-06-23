@@ -13,6 +13,9 @@ const exists = async (body) => {
 const deleteOne = async (query) => {
     return await questionAnswerModal.deleteOne(query);
 }
+const findOneAndUpdate = async (conditon, setData ) => {
+    return await questionAnswerModal.findOneAndUpdate(conditon, setData);
+}
 
 
 module.exports = {
@@ -20,4 +23,5 @@ module.exports = {
     exists,
     find,
     deleteOne,
+    findOneAndUpdate,
 }

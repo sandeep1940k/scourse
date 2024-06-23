@@ -8,6 +8,7 @@ const MESSAGE = {
     INTERNAL_SERVER_ERROR: `internal server error`,
     MISSING_REQUIRED_FIELDS: 'missing required fields',
     SAVE_SUCCESSFULLY: `save successfully`,
+    UPDATE_SUCCESSFULLY: `update successfully`,
     DELETE_SUCCESSFULLY: `delete successfully`,
 }
 

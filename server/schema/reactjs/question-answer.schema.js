@@ -8,6 +8,6 @@ const questionAnswerSchema = new mongoose.Schema({
     timestamps: true 
 });
 
-const Question = mongoose.model('Question-Answer', questionAnswerSchema);
+const Question = mongoose.model('React-Question-Answer', questionAnswerSchema);
 
 module.exports = Question;

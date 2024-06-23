@@ -21,6 +21,21 @@ const saveQuestionAnswer = async (req, res) => {
         res.status(RESPONSE.INTERNAL_SERVER_ERROR).send({ message: MESSAGE.INTERNAL_SERVER_ERROR });
     }
 };
+const editQuestionAnswer = async (req, res) => {
+    try {
+        const { question, answer } = req.body;
+        const { id } = req.params;
+
+        if (!question || !answer) {
+            return res.status(RESPONSE.BAD_REQUEST).send({ message: MESSAGE.MISSING_REQUIRED_FIELDS });
+        }
+        const update = await questionAnswerDao.findOneAndUpdate({_id: id}, {$set: req.body});
+        res.status(RESPONSE.OK).send({ question: update, message: MESSAGE.UPDATE_SUCCESSFULLY });
+    } catch (error) {
+        console.error(error);
+        res.status(RESPONSE.INTERNAL_SERVER_ERROR).send({ message: MESSAGE.INTERNAL_SERVER_ERROR });
+    }
+};
 const getQuestionAnswer = async (req, res) => {
     try {
         const questions = await questionAnswerDao.find({});
@@ -44,6 +59,7 @@ const deleteQuestionAnswer = async (req, res) => {
 
 module.exports = {
     saveQuestionAnswer,
+    editQuestionAnswer,
     getQuestionAnswer,
     deleteQuestionAnswer,
 };

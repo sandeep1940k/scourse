@@ -3,6 +3,7 @@ const router = express.Router();
 const questionAnswerController = require('../controller/reactjs/question-answer.controller');
 
 router.post('/question-answer/:userId', questionAnswerController.saveQuestionAnswer);
+router.put('/question-answer/:id', questionAnswerController.editQuestionAnswer);
 router.get('/question-answer', questionAnswerController.getQuestionAnswer);
 router.delete('/question-answer/:id', questionAnswerController.deleteQuestionAnswer);
 

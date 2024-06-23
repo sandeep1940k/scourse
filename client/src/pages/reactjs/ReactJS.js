@@ -8,7 +8,7 @@ const ReactJS = () => {
         <>
             <nav className='react-nav'>
                 <ul>
-                    <li className={location.pathname === '/user/reactjs' ? 'active': ''} className='active'>
+                    <li className={location.pathname === '/user/reactjs' ? 'active': ''}>
                         <Link to="/user/reactjs">Question-Answer</Link>
                     </li>
                     <li className={location.pathname === '/user/reactjs/mcq' ? 'active': ''}>

@@ -1,1 +1,1 @@
-export const SERVER = 'https://scourseserver.onrender.com/'
+export const SERVER = 'http://localhost:3005/'
