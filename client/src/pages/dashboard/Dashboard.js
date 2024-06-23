@@ -5,7 +5,7 @@ import { ClipLoader } from 'react-spinners';
 import Popup from 'reactjs-popup';
 import './Dashboard.css';
 import { useNavigate } from 'react-router-dom';
-import { RESPONSE } from '../constant/response.constant';
+import { RESPONSE } from '../../constant/response.constant';
 
 const Dashboard = () => {
     const navigate = useNavigate();
@@ -16,7 +16,6 @@ const Dashboard = () => {
     });
     const [isLoading, setIsLoading] = useState(false);
     const userId = localStorage.getItem('userId');
-    const [questions, setQuestions] = useState([]);
 
     const handleChange = ({ target }) => {
         const { name, value } = target;
@@ -32,7 +31,7 @@ const Dashboard = () => {
             setIsLoading(true);
             const response = await axios.post(`http://localhost:3005/api/common/question/${userId}`, formData);
             if (response.status === RESPONSE.OK) {
-                setQuestions(prevQuestions => [...prevQuestions, response.data.question]);
+                // setQuestions(prevQuestions => [...prevQuestions, response.data.question]);
                 setFormData({ name: '', category: '', format: '' });
                 close();
                 toast.success('Question added successfully!');
@@ -45,24 +44,24 @@ const Dashboard = () => {
         }
     };
 
-    useEffect(() => {
-        const fetchData = async () => {
-            if (!userId) {
-                navigate('/login');
-            } else {
-                try {
-                    const response = await axios.get(`http://localhost:3005/api/common/question/${userId}`);
-                    if (response.status === RESPONSE.OK) {
-                        setQuestions(response.data.questions);
-                    }
-                } catch (error) {
-                    console.error(error);
-                    toast.error('Failed to fetch questions.');
-                }
-            }
-        };
-        fetchData();
-    }, [userId, navigate]);
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         if (!userId) {
+    //             navigate('/login');
+    //         } else {
+    //             try {
+    //                 const response = await axios.get(`http://localhost:3005/api/common/question/${userId}`);
+    //                 if (response.status === RESPONSE.OK) {
+    //                     setQuestions(response.data.questions);
+    //                 }
+    //             } catch (error) {
+    //                 console.error(error);
+    //                 toast.error('Failed to fetch questions.');
+    //             }
+    //         }
+    //     };
+    //     fetchData();
+    // }, [userId, navigate]);
 
     return (
         <div>
@@ -132,31 +131,6 @@ const Dashboard = () => {
                     </Popup>
                 </div>
             </nav>
-            <div>
-                <h1>Questions</h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Category</th>
-                            <th>Format</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {questions.map((question, index) => (
-                            <tr key={question._id}>
-                                <td>{index + 1}</td>
-                                <td>{question.name}</td>
-                                <td>{question.category}</td>
-                                <td>{question.format}</td>
-                                <td>{/* You can add actions like Edit/Delete here */}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
         </div>
     );
 };

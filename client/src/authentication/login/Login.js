@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import './Signup.css';
+import './Login.css';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom"
-import { RESPONSE } from '../constant/response.constant';
+import { RESPONSE } from '../../constant/response.constant';
+import background from "../../images/background/background.jpg"
 
 const Login = () => {
     const navigate = useNavigate()
@@ -25,7 +26,7 @@ const Login = () => {
             const response = await axios.get('http://localhost:3005/api/authentication/login', { params: formData });
             if (response.status ===  RESPONSE.OK){
                 localStorage.setItem('userId', response.data.userId);
-                navigate('/dashboard')
+                navigate('/user')
             }
         } catch (error) {
             console.error('Error:', error);
@@ -40,35 +41,32 @@ const Login = () => {
         }
     }
     return (
-        <div className="container">
-            <h2 className="heading">Login</h2>
-            <form className="form" onSubmit={handleSubmit}>
-                <div className="formGroup">
-                    <label className="label">Username:</label>
+        <>
+        <div className='background'><img src={background} /></div>
+        <div className="card">
+                <h1>sign up</h1>
+                <form onSubmit={handleSubmit}>
+                    <label >username</label><br />
                     <input
-                        className="input"
                         type="text"
                         name="username"
                         value={formData.username}
                         onChange={handleChange}
                     />
-                </div>
-                <div className="formGroup">
-                    <label className="label">Password:</label>
+                    <label >password</label><br />
                     <input
-                        className="input"
                         type="password"
                         name="password"
                         value={formData.password}
                         onChange={handleChange}
                     />
-                </div>
-                <p onClick={handleLogin}>Signup</p>
-                <div>
-                    <input className="button" type="submit" value="Signup" />
-                </div>
-            </form>
-        </div>
+                    <p >create new account - <span onClick={handleLogin}>sign up</span></p>
+                    <button type="submit" value="Signup" >
+                        login
+                    </button>
+                </form>
+            </div>
+        </>
     )
 }
 

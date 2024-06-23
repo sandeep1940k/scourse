@@ -7,6 +7,8 @@ const MESSAGE = {
     INCORRECT_USERNAME_PASSWORD: `incorrect username password`,
     INTERNAL_SERVER_ERROR: `internal server error`,
     MISSING_REQUIRED_FIELDS: 'missing required fields',
+    SAVE_SUCCESSFULLY: `save successfully`,
+    DELETE_SUCCESSFULLY: `delete successfully`,
 }
 
 module.exports = {
