@@ -5,6 +5,7 @@ import { RESPONSE } from '../../constant/response.constant';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { SERVER } from '../../config';
 
 const Question = () => {
     const navigate = useNavigate();
@@ -26,7 +27,7 @@ const Question = () => {
                 navigate('/login');
             } else {
                 try {
-                    const response = await axios.get(`http://localhost:3005/api/common/question/${userId}`);
+                    const response = await axios.get(`${SERVER}api/common/question/${userId}`);
                     if (response.status === RESPONSE.OK) {
                         setQuestions(response.data.questions);
                     }

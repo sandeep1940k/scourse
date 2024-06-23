@@ -5,7 +5,6 @@ body {
 .nav {
     display: flex;
     margin: 10px;
-    border-radius: 10px;
     background-color: #6ac2da;
     padding: 10px;
     font-size: 16px;

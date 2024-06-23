@@ -1,0 +1,9 @@
+.react-nav{
+    position: sticky;
+    top: 64px;
+    background-color: #535353;
+}
+
+.active{
+    background-color: blue;
+}

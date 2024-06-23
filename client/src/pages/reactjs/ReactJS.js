@@ -5,9 +5,9 @@ import './ReactJS.css'
 const ReactJS = () => {
     return (
         <>
-            <nav>
+            <nav className='react-nav'>
                 <ul>
-                    <li>
+                    <li className='active'>
                         <Link to="/user/reactjs">Question-Answer</Link>
                     </li>
                     <li>

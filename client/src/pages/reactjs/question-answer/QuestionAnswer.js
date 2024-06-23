@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { RESPONSE } from '../../../constant/response.constant';
 import './QuestionAnswer.css';
+import { SERVER } from '../../../config';
 
 const QuestionAnswer = () => {
     const [isOpenQuestionPopup, setIsOpenQuestionPopup] = useState(false);
@@ -20,7 +21,7 @@ const QuestionAnswer = () => {
     const handleAddEditQuestion = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post(`http://localhost:3005/api/reactjs/question-answer/${userId}`, formData);
+            const response = await axios.post(`${SERVER}api/reactjs/question-answer/${userId}`, formData);
             if (response.status === RESPONSE.OK) {
                 toast.success(response.data.message);
                 handleQuestionPopup();
@@ -37,7 +38,7 @@ const QuestionAnswer = () => {
         try {
             if(createdBy){
                 if (userId === createdBy) {
-                    const response = await axios.delete(`http://localhost:3005/api/reactjs/question-answer/${id}`);
+                    const response = await axios.delete(`${SERVER}api/reactjs/question-answer/${id}`);
                     if (response.status === RESPONSE.OK) {
                         setQuestionList(questionList.filter(item => item._id !== id));
                         toast.success(response.data.message);
@@ -57,7 +58,7 @@ const QuestionAnswer = () => {
     useEffect(() => {
         const fetchQuestions = async () => {
             try {
-                const response = await axios.get(`http://localhost:3005/api/reactjs/question-answer`);
+                const response = await axios.get(`${SERVER}api/reactjs/question-answer`);
                 if (response.status === RESPONSE.OK) {
                     setQuestionList(response.data.questions);
                 }
@@ -112,7 +113,7 @@ const QuestionAnswer = () => {
                         <form onSubmit={handleAddEditQuestion}>
                             <div className='form-group'>
                                 <label>Question</label>
-                                <input
+                                <textarea
                                     type='text'
                                     value={formData.question}
                                     onChange={(e) => setFormData({

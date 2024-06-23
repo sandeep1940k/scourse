@@ -6,7 +6,7 @@ import Popup from 'reactjs-popup';
 import './Dashboard.css';
 import { useNavigate } from 'react-router-dom';
 import { RESPONSE } from '../../constant/response.constant';
-
+import { SERVER } from '../../config';
 const Dashboard = () => {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
@@ -29,7 +29,7 @@ const Dashboard = () => {
         event.preventDefault();
         try {
             setIsLoading(true);
-            const response = await axios.post(`http://localhost:3005/api/common/question/${userId}`, formData);
+            const response = await axios.post(`${SERVER}api/common/question/${userId}`, formData);
             if (response.status === RESPONSE.OK) {
                 // setQuestions(prevQuestions => [...prevQuestions, response.data.question]);
                 setFormData({ name: '', category: '', format: '' });
@@ -43,25 +43,6 @@ const Dashboard = () => {
             setIsLoading(false);
         }
     };
-
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         if (!userId) {
-    //             navigate('/login');
-    //         } else {
-    //             try {
-    //                 const response = await axios.get(`http://localhost:3005/api/common/question/${userId}`);
-    //                 if (response.status === RESPONSE.OK) {
-    //                     setQuestions(response.data.questions);
-    //                 }
-    //             } catch (error) {
-    //                 console.error(error);
-    //                 toast.error('Failed to fetch questions.');
-    //             }
-    //         }
-    //     };
-    //     fetchData();
-    // }, [userId, navigate]);
 
     return (
         <div>

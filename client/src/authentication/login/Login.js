@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom"
 import { RESPONSE } from '../../constant/response.constant';
 import background from "../../images/background/background.jpg"
-
+import {SERVER} from '../../config';
 const Login = () => {
     const navigate = useNavigate()
     const [formData, setFormData] = useState({
@@ -23,8 +23,8 @@ const Login = () => {
     const handleSubmit = async (event) => {
         try {
             event.preventDefault();
-            const response = await axios.get('http://localhost:3005/api/authentication/login', { params: formData });
-            if (response.status ===  RESPONSE.OK){
+            const response = await axios.get(`${SERVER}api/authentication/login`, { params: formData });
+            if (response.status === RESPONSE.OK) {
                 localStorage.setItem('userId', response.data.userId);
                 navigate('/user')
             }
@@ -42,8 +42,8 @@ const Login = () => {
     }
     return (
         <>
-        <div className='background'><img src={background} /></div>
-        <div className="card">
+            <div className='background'><img src={background} /></div>
+            <div className="card">
                 <h1>sign up</h1>
                 <form onSubmit={handleSubmit}>
                     <label >username</label><br />

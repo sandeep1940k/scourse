@@ -4,6 +4,8 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom"
 import { RESPONSE } from '../../constant/response.constant';
 import background from "../../images/background/background.jpg"
+import {SERVER} from '../../config';
+
 
 
 const Signup = () => {
@@ -30,7 +32,7 @@ const Signup = () => {
     const handleSubmit = async (event) => {
         try {
             event.preventDefault();
-            const response = await axios.post('http://localhost:3005/api/authentication/signup', formData);
+            const response = await axios.post(`${SERVER}api/authentication/signup`, formData);
             if (response.status === RESPONSE.OK) {
                 navigate('/login');
             }
