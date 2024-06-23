@@ -4,13 +4,19 @@ nav ul {
     list-style-type: none;
     display: flex;
     cursor: pointer;
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li {
-    padding-right: 20px;
+    padding: 20px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
+}
+
+.active{
+    background-color: blue;
 }
